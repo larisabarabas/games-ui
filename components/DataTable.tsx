@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactEventHandler, useState } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
 
 import {
@@ -26,14 +26,15 @@ import {
 
 import SearchBar from "./SearchBar";
 import { Button } from "@/components/ui/button";
+import { DatePickerWithRange } from "./DataRangePicker";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   totalPages: number;
   rowCount: number;
-  onTablePaginationNext: Function;
-  onTablePaginationPrevious: Function;
+  onTablePaginationNext: () => void;
+  onTablePaginationPrevious: () => void;
 }
 
 export function DataTable<TData extends Game, TValue>({
@@ -74,12 +75,22 @@ export function DataTable<TData extends Game, TValue>({
 
   return (
     <div>
-      <SearchBar
-        value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
-        onInputChange={(event) =>
-          table.getColumn("title")?.setFilterValue(event.target.value)
-        }
-      />
+      <div className="flex">
+        <SearchBar
+          value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+          onInputChange={(event) =>
+            table.getColumn("title")?.setFilterValue(event.target.value)
+          }
+        />
+        <DatePickerWithRange
+          className="mb-4"
+          onInputChange={(range) => {
+            console.log(range);
+            table.getColumn("release_date")?.setFilterValue(range);
+          }}
+        />
+      </div>
+
       <div className="rounded-md border">
         <Table>
           <TableHeader>

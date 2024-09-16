@@ -29,3 +29,8 @@ declare type Pagination = {
   limit: number;
   totalPages: number;
 };
+
+declare type DateRange = {
+  from: Date;
+  to: Date;
+};

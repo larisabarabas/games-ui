@@ -7,6 +7,13 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
 
+const customDateFilter = (row, columnId: string, filterValue: DateRange) => {
+  console.log(row);
+  const date = new Date(row.getValue(columnId));
+  return date > filterValue.from && date < filterValue.to;
+  // return row.getValue(columnId).includes(filterValue);
+};
+
 export const columns: ColumnDef<Game>[] = [
   {
     accessorKey: "avatar",
@@ -71,6 +78,7 @@ export const columns: ColumnDef<Game>[] = [
         </div>
       );
     },
+    filterFn: customDateFilter,
   },
   {
     accessorKey: "enabled",
