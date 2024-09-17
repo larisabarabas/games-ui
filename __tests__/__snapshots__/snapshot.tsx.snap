@@ -185,10 +185,10 @@ exports[`renders games page unchanged 1`] = `
                   class="h-10 px-2 text-left align-middle font-medium text-slate-500 [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] dark:text-slate-400"
                 >
                   <div
-                    class="flex justify-start"
+                    class="flex justify-end"
                   >
                     <button
-                      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-slate-300 underline-offset-4 dark:text-slate-50 h-9 px-4 py-2 text-right hover:no-underline text-gray-500"
+                      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-slate-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-slate-300 underline-offset-4 dark:text-slate-50 h-9 text-left hover:no-underline text-gray-500 p-0"
                     >
                       Release Date
                       <svg

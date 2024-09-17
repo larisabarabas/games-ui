@@ -27,6 +27,9 @@ const Game = ({ params: { id } }: SearchParamProps) => {
   const previousPageRoute = searchParams?.toString().includes("from=search")
     ? "/search"
     : "/";
+  const previousPageName = searchParams?.toString().includes("from=search")
+    ? "Search"
+    : "Game";
 
   useEffect(() => {
     async function fetchGames() {
@@ -49,7 +52,9 @@ const Game = ({ params: { id } }: SearchParamProps) => {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href={previousPageRoute}>Games</BreadcrumbLink>
+            <BreadcrumbLink href={previousPageRoute}>
+              {previousPageName}
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
