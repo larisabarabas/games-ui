@@ -29,7 +29,7 @@ const Game = ({ params: { id } }: SearchParamProps) => {
     : "/";
   const previousPageName = searchParams?.toString().includes("from=search")
     ? "Search"
-    : "Game";
+    : "Games";
 
   useEffect(() => {
     async function fetchGames() {
