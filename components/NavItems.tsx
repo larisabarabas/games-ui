@@ -3,11 +3,12 @@ import React from "react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { navigationItems } from "@/lib/data";
 
 const NavItems = () => {
   const pathName = usePathname();
-  console.log(pathName);
+
   return (
     <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
       {navigationItems.map((item) => {

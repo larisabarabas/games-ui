@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { DataTable } from "@/components/DataTable";
+
 import { columns } from "@/lib/columns";
 import { BE_API } from "@/lib/constants";
+
+import { DataTable } from "@/components/DataTable";
 import ErrorAlert from "@/components/ErrorAlert";
 
 export default function Games() {
@@ -16,7 +18,6 @@ export default function Games() {
     try {
       const res = await fetch(`${BE_API}/games?page=${page}`);
       const data = await res.json();
-      console.log("DATA:", data);
       setGames(data.games);
       setPagination({
         total: data.total,

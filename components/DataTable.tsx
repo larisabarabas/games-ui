@@ -23,10 +23,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-import SearchBar from "./SearchBar";
 import { Button } from "@/components/ui/button";
-import { DatePickerWithRange } from "./DataRangePicker";
+
+import SearchBar from "@/components/SearchBar";
+import { DatePickerWithRange } from "@/components/DataRangePicker";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -86,7 +86,6 @@ export function DataTable<TData extends Game, TValue>({
         <DatePickerWithRange
           className="mb-4"
           onInputChange={(range) => {
-            console.log(range);
             table.getColumn("release_date")?.setFilterValue(range);
           }}
         />

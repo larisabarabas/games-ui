@@ -1,14 +1,17 @@
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef, Row } from "@tanstack/react-table";
 import { formatDateToLocal } from "./utils";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown } from "lucide-react";
 
-const customDateFilter = (row, columnId: string, filterValue: DateRange) => {
-  console.log(row);
+const customDateFilter = (
+  row: Row<Game>,
+  columnId: string,
+  filterValue: DateRange
+) => {
   const date = new Date(row.getValue(columnId));
   return date > filterValue.from && date < filterValue.to;
   // return row.getValue(columnId).includes(filterValue);
@@ -57,9 +60,9 @@ export const columns: ColumnDef<Game>[] = [
     accessorKey: "release_date",
     header: ({ column }) => {
       return (
-        <div className="flex justify-start">
+        <div className="flex justify-end">
           <Button
-            className="text-right hover:no-underline text-gray-500"
+            className="text-left hover:no-underline text-gray-500 p-0"
             variant="link"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >

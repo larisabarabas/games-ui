@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-
-import SearchBar from "../components/SearchBar";
 import Image from "next/image";
+
+import SearchBar from "@/components/SearchBar";
 import { BE_API } from "@/lib/constants";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
 
 const LiveSearch = () => {
   const [showList, setShowList] = useState(false);

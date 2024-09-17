@@ -1,5 +1,5 @@
-import LiveSearch from "@/components/LiveSearch";
 import React from "react";
+import LiveSearch from "@/components/LiveSearch";
 
 const Search = () => {
   return (
@@ -7,7 +7,7 @@ const Search = () => {
       <div>
         <h1 className="text-lg font-semibold md:text-2xl">Search games</h1>
         <p className="text-sm font-light text-gray-400 mt-2">
-          Live search through all the studio&apos;s games
+          Live search through all the games
         </p>
       </div>
       <div className="flex-1">

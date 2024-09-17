@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
+
 import { Gamepad2 } from "lucide-react";
+
 import { navigationItems } from "@/lib/data";
 
 const NavItemsMobile = () => {

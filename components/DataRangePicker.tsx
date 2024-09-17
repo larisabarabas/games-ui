@@ -18,8 +18,7 @@ export function DatePickerWithRange({
   className,
   onInputChange,
 }: {
-  className: React.HTMLAttributes<HTMLDivElement>;
-  value: string;
+  className: string;
   onInputChange: (range: DateRange) => void;
 }) {
   const [date, setDate] = React.useState<DateRange | undefined>({

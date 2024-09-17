@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Gamepad2 } from "lucide-react";
 
-import NavItems from "./NavItems";
+import NavItems from "@/components/NavItems";
 
 const SideBar = () => {
   return (

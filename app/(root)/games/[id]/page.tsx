@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { BE_API } from "@/lib/constants";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,15 +17,14 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import ErrorAlert from "@/components/ErrorAlert";
 import Loader from "@/components/Loader";
-import { useSearchParams } from "next/navigation";
 
 const Game = ({ params: { id } }: SearchParamProps) => {
   const [game, setGame] = useState<Game>();
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const searchParams = useSearchParams();
-  console.log(searchParams);
-  const previousPageRoute = searchParams.toString().includes("from=search")
+
+  const previousPageRoute = searchParams?.toString().includes("from=search")
     ? "/search"
     : "/";
 
