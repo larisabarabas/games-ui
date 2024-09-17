@@ -1,4 +1,4 @@
-import { Home, LineChart, Table, Settings } from "lucide-react";
+import { Home, LineChart, Settings, Search } from "lucide-react";
 export const navigationItems = [
   {
     id: 1,
@@ -8,9 +8,9 @@ export const navigationItems = [
   },
   {
     id: 2,
-    title: "Reports",
-    path: "/reports",
-    iconComponent: Table,
+    title: "Search",
+    path: "/search",
+    iconComponent: Search,
   },
   {
     id: 3,

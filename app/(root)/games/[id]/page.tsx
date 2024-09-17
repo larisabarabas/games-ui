@@ -14,35 +14,41 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import ErrorAlert from "@/components/ErrorAlert";
+import Loader from "@/components/Loader";
+import { useSearchParams } from "next/navigation";
 
 const Game = ({ params: { id } }: SearchParamProps) => {
   const [game, setGame] = useState<Game>();
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const searchParams = useSearchParams();
+  console.log(searchParams);
+  const previousPageRoute = searchParams.toString().includes("from=search")
+    ? "/search"
+    : "/";
 
   useEffect(() => {
     async function fetchGames() {
       try {
         const res = await fetch(`${BE_API}/games/${id}`);
         const data = await res.json();
-        console.log("DATA:", data);
         if (data.game) setGame(data.game);
         if (data.detail) setErrorMessage(data.detail);
       } catch (error) {
-        if (error) setErrorMessage("Error while fecthing game data");
+        setErrorMessage("Error while fecthing game data");
       }
       setLoading(false);
     }
     fetchGames();
-  }, []);
+  }, [id]);
 
-  if (!game && loading) return <div>Loading...</div>;
+  if (!game && loading) return <Loader />;
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Games</BreadcrumbLink>
+            <BreadcrumbLink href={previousPageRoute}>Games</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

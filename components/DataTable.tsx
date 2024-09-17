@@ -75,8 +75,9 @@ export function DataTable<TData extends Game, TValue>({
 
   return (
     <div>
-      <div className="flex">
+      <div className="flex justify-between gap-8">
         <SearchBar
+          placeholder="Filter games ..."
           value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
           onInputChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
