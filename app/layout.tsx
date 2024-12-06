@@ -18,8 +18,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Playstation Games",
-  description: "Playstation data management tool for game studios",
+  title: "Games Center",
+  description: "Data management tool for game studios",
 };
 
 export default function RootLayout({
